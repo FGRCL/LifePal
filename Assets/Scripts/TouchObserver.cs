@@ -1,3 +1,3 @@
 public interface TouchObserver{
-    public void notify();
+    void OnTouch();
 }

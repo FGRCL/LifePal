@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class TouchSubject : MonoBehaviour
 {
-    private ArrayList<TouchObserver> observers;
+    public GameObject dog;
+    public GameObject ball;
+    private ArrayList observers = new ArrayList();
     // Start is called before the first frame update
     void Start()
     {
-        
+        ReticleBehaviour PlacementIndicator = FindObjectOfType<ReticleBehaviour>();
+        observers.Add(new DogSpawner(dog, PlacementIndicator));
+        observers.Add(new BallSpawner(ball));
     }
 
     // Update is called once per frame
@@ -16,7 +20,7 @@ public class TouchSubject : MonoBehaviour
     {
         if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began){
             foreach(TouchObserver observer in observers){
-                observer.notify();
+                observer.OnTouch();
             }
         }
     }
