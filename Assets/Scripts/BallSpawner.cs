@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BallSpawner: TouchSubject{
+public class BallSpawner: TouchObserver{
     private GameObject ball;
     private Camera mainCamera;
 
@@ -12,7 +12,7 @@ public class BallSpawner: TouchSubject{
     public void OnTouch(){
         GameObject[] dogs = GameObject.FindGameObjectsWithTag("dog");
         if(dogs.Length > 0){
-            GameObject ballClone = GameObject.Instantiate(dog, mainCamera.transform.position, mainCamera.transform.rotation);
+            GameObject ballClone = GameObject.Instantiate(ball, mainCamera.transform.position, mainCamera.transform.rotation);
             ballClone.GetComponent<Rigidbody>().AddForce(mainCamera.transform.forward * 100);
         }
     }
