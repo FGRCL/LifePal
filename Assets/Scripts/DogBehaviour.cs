@@ -6,7 +6,7 @@ namespace Assets.Scripts
     {
         private TouchSubject touchSubject;
         private GameObject reticle;
-        public float speed;
+        private float speed;
         private Animator animator;
         private Vector3 target;
         private bool hasTarget = false;
@@ -17,6 +17,7 @@ namespace Assets.Scripts
             reticle = GameObject.FindGameObjectsWithTag("Reticle")[0];
             animator = GetComponent<Animator>();
             touchSubject.Subscribe(this);
+            speed = 0.3f;
         }
 
         void Update()
@@ -24,10 +25,12 @@ namespace Assets.Scripts
             if (hasTarget)
             {
                 float step = speed * Time.deltaTime; // calculate distance to move
+                transform.LookAt(target);
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
                 if (Vector3.Distance(transform.position, target) < 0.001f)
                 {
                     hasTarget = false;
+                    animator.SetFloat("Move", 0.0f);
                 }
             }
         }
@@ -36,10 +39,12 @@ namespace Assets.Scripts
         {
             target = reticle.transform.position;
             hasTarget = true;
+            animator.SetFloat("Move", 1.6f);
         }
 
          void OnMouseDown()
         {
+            hasTarget = false;
             animator.SetTrigger("bark");
         }
     }   

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TouchObserver
   - Reticle
+  - dog
   layers:
   - Default
   - TransparentFX

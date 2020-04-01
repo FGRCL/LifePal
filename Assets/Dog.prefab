@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1201635172117460171}
   m_Layer: 0
   m_Name: Dog
-  m_TagString: Untagged
+  m_TagString: dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,8 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e57d1c5c0a9c41439706c10efcec363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticle: {fileID: 6281319350767050549, guid: 032bc7dfa530dd645823ea461e5f6003, type: 3}
-  speed: 0.1
 --- !u!65 &1201635172117460171
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class TouchSubject : MonoBehaviour
     {
         ReticleBehaviour PlacementIndicator = FindObjectOfType<ReticleBehaviour>();
         observers.Add(new DogSpawner(dog, PlacementIndicator));
+        observers.Add(new BallSpawner(ball));
     }
 
     // Update is called once per frame
