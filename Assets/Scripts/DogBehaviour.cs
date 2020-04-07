@@ -17,7 +17,7 @@ namespace Assets.Scripts
             reticle = GameObject.FindGameObjectsWithTag("Reticle")[0];
             animator = GetComponent<Animator>();
             touchSubject.Subscribe(this);
-            speed = 0.3f;
+            speed = 1.5f;
         }
 
         void Update()
